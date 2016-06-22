@@ -1,0 +1,25 @@
+// [START view]
+extends ../base.jade
+
+block content
+  h3 submission
+    small
+
+  .btn-group
+    a(href="/submissions/#{submission.id}/edit", class='btn btn-primary btn-sm')
+      i.glyphicon.glyphicon-edit
+      span  Edit submission
+    a(href="/submissions/#{submission.id}/delete", class='btn btn-danger btn-sm')
+      i.glyphicon.glyphicon-trash
+      span  Delete submission
+
+  .media
+    .media-left
+      img(src=submission.imageUrl || "http://placekitten.com/g/128/192" style="max-width: 500px;")
+    .media-body
+      h4= submission.name
+        | &nbsp;
+        small= submission.publishedDate
+      h5 By #{submission.name||'unknown'}
+      p= submission.description
+// [END view]
